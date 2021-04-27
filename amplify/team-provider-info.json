@@ -16,5 +16,23 @@
         "remarkablefrontend50c2d2a2": {}
       }
     }
+  },
+  "bri": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-remarkablefrontend-bri-85302-authRole",
+      "UnauthRoleArn": "arn:aws:iam::466357709346:role/amplify-remarkablefrontend-bri-85302-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::466357709346:role/amplify-remarkablefrontend-bri-85302-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-remarkablefrontend-bri-85302-deployment",
+      "UnauthRoleName": "amplify-remarkablefrontend-bri-85302-unauthRole",
+      "StackName": "amplify-remarkablefrontend-bri-85302",
+      "StackId": "arn:aws:cloudformation:us-east-1:466357709346:stack/amplify-remarkablefrontend-bri-85302/575fb8f0-a68e-11eb-9c55-0e5602f42feb",
+      "AmplifyAppId": "d20nbq78j8jov5"
+    },
+    "categories": {
+      "auth": {
+        "remarkablefrontend50c2d2a2": {}
+      }
+    }
   }
 }
