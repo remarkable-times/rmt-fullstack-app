@@ -1,0 +1,35 @@
+{
+    "paths": [
+        {
+            "name": "/api",
+            "lambdaFunction": "rmtExpressBackend",
+            "privacy": {
+                "open": true
+            },
+            "policyResourceName": "/api"
+        }
+    ],
+    "resourceName": "remarkableRest",
+    "apiName": "remarkableRest",
+    "functionArns": [
+        {
+            "lambdaFunction": "rmtExpressBackend"
+        }
+    ],
+    "privacy": {
+        "auth": 0,
+        "unauth": 0,
+        "authRoleName": "amplify-remarkablefrontend-dev-183551-authRole",
+        "unAuthRoleName": "amplify-remarkablefrontend-dev-183551-unauthRole"
+    },
+    "dependsOn": [
+        {
+            "category": "function",
+            "resourceName": "rmtExpressBackend",
+            "attributes": [
+                "Name",
+                "Arn"
+            ]
+        }
+    ]
+}
