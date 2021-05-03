@@ -1,12 +1,3 @@
-/*
-Copyright 2017 - 2017 Amazon.com, Inc. or its affiliates. All Rights Reserved.
-Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with the License. A copy of the License is located at
-    http://aws.amazon.com/apache2.0/
-or in the "license" file accompanying this file. This file is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and limitations under the License.
-*/
-
-
 
 
 var express = require('express')
@@ -18,8 +9,11 @@ var app = express()
 app.use(bodyParser.json())
 app.use(awsServerlessExpressMiddleware.eventContext())
 
+var mysql = require("mysql");
+
+
 // Enable CORS for all methods
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
   res.header("Access-Control-Allow-Origin", "*")
   res.header("Access-Control-Allow-Headers", "*")
   next()
@@ -30,63 +24,89 @@ app.use(function(req, res, next) {
  * Example get method *
  **********************/
 
-app.get('/api', function(req, res) {
+app.get('/api', async function (req, res) {
   // Add your code here
-  res.json({success: 'get call succeed!', url: req.url});
+  var connection = mysql.createConnection({
+    host: process.env.DB_HOST,
+    user: "admin",
+    password: process.env.DB_PASSWORD,
+    database: "RMT_DB",
+  });
+
+  await connection.connect();
+  const fetchedData = await getDataAsync(connection);
+  console.log("fetched data: ");
+  console.log(fetchedData);
+
+  res.json({ success: 'get call succeed!', url: req.url });
 });
 
-app.get('/api/*', function(req, res) {
+app.get('/api/*', function (req, res) {
   // Add your code here
-  res.json({success: 'get call succeed!', url: req.url});
+  res.json({ success: 'get call succeed!', url: req.url });
 });
 
 /****************************
 * Example post method *
 ****************************/
 
-app.post('/api', function(req, res) {
+app.post('/api', function (req, res) {
   // Add your code here
-  res.json({success: 'post call succeed!', url: req.url, body: req.body})
+  res.json({ success: 'post call succeed!', url: req.url, body: req.body })
 });
 
-app.post('/api/*', function(req, res) {
+app.post('/api/*', function (req, res) {
   // Add your code here
-  res.json({success: 'post call succeed!', url: req.url, body: req.body})
+  res.json({ success: 'post call succeed!', url: req.url, body: req.body })
 });
 
 /****************************
 * Example put method *
 ****************************/
 
-app.put('/api', function(req, res) {
+app.put('/api', function (req, res) {
   // Add your code here
-  res.json({success: 'put call succeed!', url: req.url, body: req.body})
+  res.json({ success: 'put call succeed!', url: req.url, body: req.body })
 });
 
-app.put('/api/*', function(req, res) {
+app.put('/api/*', function (req, res) {
   // Add your code here
-  res.json({success: 'put call succeed!', url: req.url, body: req.body})
+  res.json({ success: 'put call succeed!', url: req.url, body: req.body })
 });
 
 /****************************
 * Example delete method *
 ****************************/
 
-app.delete('/api', function(req, res) {
+app.delete('/api', function (req, res) {
   // Add your code here
-  res.json({success: 'delete call succeed!', url: req.url});
+  res.json({ success: 'delete call succeed!', url: req.url });
 });
 
-app.delete('/api/*', function(req, res) {
+app.delete('/api/*', function (req, res) {
   // Add your code here
-  res.json({success: 'delete call succeed!', url: req.url});
+  res.json({ success: 'delete call succeed!', url: req.url });
 });
 
-app.listen(3000, function() {
-    console.log("App started")
+app.listen(3000, function () {
+  console.log("App started")
 });
 
 // Export the app object. When executing the application local this does nothing. However,
 // to port it to AWS Lambda we will create a wrapper around that will load the app from
 // this file
 module.exports = app
+
+
+function getDataAsync(connection) {
+  return new Promise((resolve, reject) => {
+    return connection.query(
+      "SELECT * FROM tutorials_tbl",
+      function (error, result) {
+        if (error) throw error;
+        connection.end();
+        resolve(result);
+      }
+    );
+  });
+}

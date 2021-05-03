@@ -36,7 +36,7 @@
       "function": {
         "rmtExpressBackend": {
           "deploymentBucketName": "amplify-remarkablefrontend-bri-85302-deployment",
-          "s3Key": "amplify-builds/rmtExpressBackend-326e79784b724c48414a-build.zip"
+          "s3Key": "amplify-builds/rmtExpressBackend-57666b307379434e556a-build.zip"
         }
       }
     }
