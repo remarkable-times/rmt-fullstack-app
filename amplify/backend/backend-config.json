@@ -1,6 +1,6 @@
 {
   "api": {
-    "remarkableRest": {
+    "rmtBackend": {
       "service": "API Gateway",
       "providerPlugin": "awscloudformation",
       "dependsOn": [

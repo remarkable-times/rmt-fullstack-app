@@ -32,6 +32,12 @@
     "categories": {
       "auth": {
         "remarkablefrontend50c2d2a2": {}
+      },
+      "function": {
+        "rmtExpressBackend": {
+          "deploymentBucketName": "amplify-remarkablefrontend-bri-85302-deployment",
+          "s3Key": "amplify-builds/rmtExpressBackend-326e79784b724c48414a-build.zip"
+        }
       }
     }
   }
