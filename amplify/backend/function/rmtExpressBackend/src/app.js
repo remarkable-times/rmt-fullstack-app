@@ -17,7 +17,7 @@ app.use(function (req, res, next) {
 
 
 app.get('/api', async function (req, res) {
-  console.log("\n\n you hit the get route");
+  console.log("\n you hit the get route");
   const dbConnection = await getCachedDbConnection();
   // console.log(dbConnection);
   const data = await dbConnection.execute('SELECT * FROM tutorials_tbl');

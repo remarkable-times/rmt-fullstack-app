@@ -1,23 +1,22 @@
-require('dotenv').config();
-const SecretsManager = require('aws-sdk/clients/secretsmanager')
-const secretsManager = new SecretsManager();
-const mysql = require('mysql2/promise');
 
+const mysql = require('mysql2/promise');
+const varNames = require('../enum/envEnum')
+
+// declare global variable which can be uses across lambda invocations
 let connection = null;
 
-async function getCachedDbConnection() {
-
-  // const secret = await secretsManager.getSecretValue({ SecretId: process.env.RMT_CLUSTER_SECRET_NAME }).promise()
+async function getCachedDbConnection(envSvc) {
   if (connection != null) {
     console.log("re-using cached connection");
     return connection;
   }
   if (connection == null) {
     console.log("connection not exits, CREATING");
+    console.log("connecting to host: " + envSvc.get(varNames.DB_HOST));
     connection = await mysql.createConnection({
-      host: process.env.DB_HOST,
-      user: process.env.DB_USERNAME,
-      password: process.env.DB_PASSWORD,
+      host: envSvc.get(varNames.DB_HOST),
+      user: envSvc.get(varNames.DB_USER),
+      password: envSvc.get(varNames.DB_PASSWORD),
       database: "RMT_DB",
     });
     return connection;
