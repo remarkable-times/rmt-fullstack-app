@@ -40,5 +40,29 @@
         }
       }
     }
+  },
+  "devbri": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-remarkablefrontend-devbri-80922-authRole",
+      "UnauthRoleArn": "arn:aws:iam::466357709346:role/amplify-remarkablefrontend-devbri-80922-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::466357709346:role/amplify-remarkablefrontend-devbri-80922-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-remarkablefrontend-devbri-80922-deployment",
+      "UnauthRoleName": "amplify-remarkablefrontend-devbri-80922-unauthRole",
+      "StackName": "amplify-remarkablefrontend-devbri-80922",
+      "StackId": "arn:aws:cloudformation:us-east-1:466357709346:stack/amplify-remarkablefrontend-devbri-80922/1004ef00-af2d-11eb-8f1c-0edef5a02865",
+      "AmplifyAppId": "d20nbq78j8jov5"
+    },
+    "categories": {
+      "auth": {
+        "remarkablefrontend50c2d2a2": {}
+      },
+      "function": {
+        "rmtExpressBackend": {
+          "deploymentBucketName": "amplify-remarkablefrontend-devbri-80922-deployment",
+          "s3Key": "amplify-builds/rmtExpressBackend-3048317146524d585877-build.zip"
+        }
+      }
+    }
   }
 }
