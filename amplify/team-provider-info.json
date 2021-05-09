@@ -1,23 +1,26 @@
 {
-  "develop": {
-    "awscloudformation": {
-      "AuthRoleName": "amplify-remarkabletimes-develop-212151-authRole",
-      "UnauthRoleArn": "arn:aws:iam::466357709346:role/amplify-remarkabletimes-develop-212151-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::466357709346:role/amplify-remarkabletimes-develop-212151-authRole",
-      "Region": "us-east-1",
-      "DeploymentBucketName": "amplify-remarkabletimes-develop-212151-deployment",
-      "UnauthRoleName": "amplify-remarkabletimes-develop-212151-unauthRole",
-      "StackName": "amplify-remarkabletimes-develop-212151",
-      "StackId": "arn:aws:cloudformation:us-east-1:466357709346:stack/amplify-remarkabletimes-develop-212151/f0150660-b064-11eb-a487-0e46b6c7c4a3",
-      "AmplifyAppId": "d271or7remwsnk"
-    },
-    "categories": {
-      "function": {
-        "rmtApi": {
-          "deploymentBucketName": "amplify-remarkabletimes-develop-212151-deployment",
-          "s3Key": "amplify-builds/rmtApi-53554e4b74755070634f-build.zip"
+    "dev": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-remarkabletimes-dev-215059-authRole",
+            "UnauthRoleArn": "arn:aws:iam::466357709346:role/amplify-remarkabletimes-dev-215059-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::466357709346:role/amplify-remarkabletimes-dev-215059-authRole",
+            "Region": "us-east-1",
+            "DeploymentBucketName": "amplify-remarkabletimes-dev-215059-deployment",
+            "UnauthRoleName": "amplify-remarkabletimes-dev-215059-unauthRole",
+            "StackName": "amplify-remarkabletimes-dev-215059",
+            "StackId": "arn:aws:cloudformation:us-east-1:466357709346:stack/amplify-remarkabletimes-dev-215059/0150a890-b069-11eb-b448-0e3caa6b31bf",
+            "AmplifyAppId": "d271or7remwsnk"
+        },
+        "categories": {
+            "function": {
+                "rmtApi": {}
+            },
+            "hosting": {
+                "amplifyhosting": {
+                    "appId": "d271or7remwsnk",
+                    "type": "cicd"
+                }
+            }
         }
-      }
     }
-  }
 }
