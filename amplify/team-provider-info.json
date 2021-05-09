@@ -1,66 +1,21 @@
 {
-  "dev": {
+  "develop": {
     "awscloudformation": {
-      "AuthRoleName": "amplify-remarkablefrontend-dev-183551-authRole",
-      "UnauthRoleArn": "arn:aws:iam::219209683372:role/amplify-remarkablefrontend-dev-183551-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::219209683372:role/amplify-remarkablefrontend-dev-183551-authRole",
+      "AuthRoleName": "amplify-remarkabletimes-develop-212151-authRole",
+      "UnauthRoleArn": "arn:aws:iam::466357709346:role/amplify-remarkabletimes-develop-212151-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::466357709346:role/amplify-remarkabletimes-develop-212151-authRole",
       "Region": "us-east-1",
-      "DeploymentBucketName": "amplify-remarkablefrontend-dev-183551-deployment",
-      "UnauthRoleName": "amplify-remarkablefrontend-dev-183551-unauthRole",
-      "StackName": "amplify-remarkablefrontend-dev-183551",
-      "StackId": "arn:aws:cloudformation:us-east-1:219209683372:stack/amplify-remarkablefrontend-dev-183551/72919d50-9bdf-11eb-b040-0ada7ccc8ac7",
-      "AmplifyAppId": "d1cxl64fui8tf7"
+      "DeploymentBucketName": "amplify-remarkabletimes-develop-212151-deployment",
+      "UnauthRoleName": "amplify-remarkabletimes-develop-212151-unauthRole",
+      "StackName": "amplify-remarkabletimes-develop-212151",
+      "StackId": "arn:aws:cloudformation:us-east-1:466357709346:stack/amplify-remarkabletimes-develop-212151/f0150660-b064-11eb-a487-0e46b6c7c4a3",
+      "AmplifyAppId": "d271or7remwsnk"
     },
     "categories": {
-      "auth": {
-        "remarkablefrontend50c2d2a2": {}
-      }
-    }
-  },
-  "bri": {
-    "awscloudformation": {
-      "AuthRoleName": "amplify-remarkablefrontend-bri-85302-authRole",
-      "UnauthRoleArn": "arn:aws:iam::466357709346:role/amplify-remarkablefrontend-bri-85302-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::466357709346:role/amplify-remarkablefrontend-bri-85302-authRole",
-      "Region": "us-east-1",
-      "DeploymentBucketName": "amplify-remarkablefrontend-bri-85302-deployment",
-      "UnauthRoleName": "amplify-remarkablefrontend-bri-85302-unauthRole",
-      "StackName": "amplify-remarkablefrontend-bri-85302",
-      "StackId": "arn:aws:cloudformation:us-east-1:466357709346:stack/amplify-remarkablefrontend-bri-85302/575fb8f0-a68e-11eb-9c55-0e5602f42feb",
-      "AmplifyAppId": "d20nbq78j8jov5"
-    },
-    "categories": {
-      "auth": {
-        "remarkablefrontend50c2d2a2": {}
-      },
       "function": {
-        "rmtExpressBackend": {
-          "deploymentBucketName": "amplify-remarkablefrontend-bri-85302-deployment",
-          "s3Key": "amplify-builds/rmtExpressBackend-57666b307379434e556a-build.zip"
-        }
-      }
-    }
-  },
-  "devbri": {
-    "awscloudformation": {
-      "AuthRoleName": "amplify-remarkablefrontend-devbri-80922-authRole",
-      "UnauthRoleArn": "arn:aws:iam::466357709346:role/amplify-remarkablefrontend-devbri-80922-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::466357709346:role/amplify-remarkablefrontend-devbri-80922-authRole",
-      "Region": "us-east-1",
-      "DeploymentBucketName": "amplify-remarkablefrontend-devbri-80922-deployment",
-      "UnauthRoleName": "amplify-remarkablefrontend-devbri-80922-unauthRole",
-      "StackName": "amplify-remarkablefrontend-devbri-80922",
-      "StackId": "arn:aws:cloudformation:us-east-1:466357709346:stack/amplify-remarkablefrontend-devbri-80922/1004ef00-af2d-11eb-8f1c-0edef5a02865",
-      "AmplifyAppId": "d20nbq78j8jov5"
-    },
-    "categories": {
-      "auth": {
-        "remarkablefrontend50c2d2a2": {}
-      },
-      "function": {
-        "rmtExpressBackend": {
-          "deploymentBucketName": "amplify-remarkablefrontend-devbri-80922-deployment",
-          "s3Key": "amplify-builds/rmtExpressBackend-3048317146524d585877-build.zip"
+        "rmtApi": {
+          "deploymentBucketName": "amplify-remarkabletimes-develop-212151-deployment",
+          "s3Key": "amplify-builds/rmtApi-53554e4b74755070634f-build.zip"
         }
       }
     }
