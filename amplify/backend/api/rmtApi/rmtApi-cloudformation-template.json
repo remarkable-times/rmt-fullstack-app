@@ -3,28 +3,22 @@
     "Description": "API Gateway resource stack creation using Amplify CLI",
     
     "Parameters": {
-        "authRoleName": {
-            "Type":  "String"
-        },
-        "unauthRoleName": {
-            "Type":  "String"
-        },
         "env": {
             "Type": "String"
         },
     
     
-          "functionrmtExpressBackendName": {
+          "functionrmtApiName": {
             "Type": "String",
-            "Default": "functionrmtExpressBackendName"
+            "Default": "functionrmtApiName"
           },
-        
+
           
-          "functionrmtExpressBackendArn": {
+          "functionrmtApiArn": {
             "Type": "String",
-            "Default": "functionrmtExpressBackendArn"
+            "Default": "functionrmtApiArn"
           }
-        
+
           
           
     
@@ -43,18 +37,16 @@
         
         
         
-        
-        
-      "remarkableRest": {
+      "rmtApi": {
         "Type": "AWS::ApiGateway::RestApi",
         "Properties": {
           "Description": "",
-          "Name": "remarkableRest",
+          "Name": "rmtApi",
           "Body": {
             "swagger": "2.0",
             "info": {
               "version": "2018-05-24T17:52:00Z",
-              "title": "remarkableRest"
+              "title": "rmtApi"
             },
             "host": {
                 "Fn::Join": [
@@ -82,7 +74,7 @@
                           }
                       ]
                   ]
-                } 
+                }
               ]
             },
             "schemes": [
@@ -175,8 +167,8 @@
                             ":lambda:path/2015-03-31/functions/",
                             
                             {
-                                
-                                "Ref": "functionrmtExpressBackendArn"
+
+                                "Ref": "functionrmtApiArn"
                             },
                             
                             "/invocations"
@@ -274,8 +266,8 @@
                           ":lambda:path/2015-03-31/functions/",
                           
                           {
-                            
-                            "Ref": "functionrmtExpressBackendArn"
+
+                            "Ref": "functionrmtApiArn"
                           },
                           
                           "/invocations"
@@ -287,7 +279,7 @@
                     "type": "aws_proxy"
                   }
                 }
-              }   
+              }
               
             },
             "securityDefinitions": {
@@ -329,15 +321,15 @@
         }
       },
 
-                  
+      
         
-        
-        "functionrmtExpressBackendPermissionremarkableRest": {
+
+        "functionrmtApiPermissionrmtApi": {
             "Type": "AWS::Lambda::Permission",
             "Properties": {
                 "FunctionName": 
                     {
-                        "Ref":  "functionrmtExpressBackendName"
+                        "Ref":  "functionrmtApiName"
                     },
                     
                     "Action": "lambda:InvokeFunction",
@@ -356,7 +348,7 @@
                             },
                             ":",
                             {
-                                "Ref": "remarkableRest"
+                                "Ref": "rmtApi"
                             },
                             "/*/*/*"
                         ]
@@ -366,22 +358,22 @@
         },
         
         
-        
-      "DeploymentAPIGWremarkableRest": {
+
+      "DeploymentAPIGWrmtApi": {
         "Type": "AWS::ApiGateway::Deployment",
         "Properties": {
           "Description": "The Development stage deployment of your API.",
           "StageName": {
             "Fn::If": [
               "ShouldNotCreateEnvResources",
-              "Prod", 
+              "Prod",
               {
                 "Ref": "env"
-              } 
+              }
             ]
           },
           "RestApiId": {
-            "Ref": "remarkableRest"
+            "Ref": "rmtApi"
           }
         }
       }
@@ -389,15 +381,15 @@
     "Outputs": {
         "RootUrl": {
             "Description": "Root URL of the API gateway",
-            "Value": {"Fn::Join": ["", ["https://", {"Ref": "remarkableRest"}, ".execute-api.", {"Ref": "AWS::Region"}, ".amazonaws.com/", {"Fn::If": ["ShouldNotCreateEnvResources","Prod", {"Ref": "env"} ]}]]}
+            "Value": {"Fn::Join": ["", ["https://", {"Ref": "rmtApi"}, ".execute-api.", {"Ref": "AWS::Region"}, ".amazonaws.com/", {"Fn::If": ["ShouldNotCreateEnvResources","Prod", {"Ref": "env"} ]}]]}
         },
         "ApiName": {
           "Description": "API Friendly name",
-          "Value": "remarkableRest"
+          "Value": "rmtApi"
         },
         "ApiId": {
           "Description": "API ID (prefix of API URL)",
-          "Value": {"Ref": "remarkableRest"}
+          "Value": {"Ref": "rmtApi"}
         }
     }
   }

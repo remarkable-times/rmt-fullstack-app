@@ -1,0 +1,35 @@
+{
+  "paths": [
+    {
+      "name": "/api",
+      "lambdaFunction": "rmtApi",
+      "privacy": {
+        "open": true
+      },
+      "policyResourceName": "/api"
+    }
+  ],
+  "resourceName": "rmtApi",
+  "apiName": "rmtApi",
+  "functionArns": [
+    {
+      "lambdaFunction": "rmtApi"
+    }
+  ],
+  "privacy": {
+    "auth": 0,
+    "unauth": 0,
+    "authRoleName": "amplify-remarkabletimes-develop-212151-authRole",
+    "unAuthRoleName": "amplify-remarkabletimes-develop-212151-unauthRole"
+  },
+  "dependsOn": [
+    {
+      "category": "function",
+      "resourceName": "rmtApi",
+      "attributes": [
+        "Name",
+        "Arn"
+      ]
+    }
+  ]
+}

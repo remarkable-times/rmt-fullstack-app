@@ -1,0 +1,20 @@
+{
+  "name": "rmtApi",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "aws-serverless-express": "^3.3.5",
+    "dotenv": "^9.0.1",
+    "express": "^4.15.2",
+    "mysql2": "^2.2.5"
+  },
+  "scripts": {
+    "test": "mocha \"**/*.spec.js\""
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^4.3.4"
+  }
+}
