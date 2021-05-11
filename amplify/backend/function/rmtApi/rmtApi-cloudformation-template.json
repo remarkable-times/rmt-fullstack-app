@@ -18,7 +18,7 @@
     },
     "rmtClusterSecretName": {
       "Type": "String",
-      "Default": "rds-db-credentials/cluster-KM5ZB66AEFD5XA4DCBWZ76ZSFM/rmt_app_user"
+      "Default": "default-rds-secret-name"
     }
   },
   "Conditions": {

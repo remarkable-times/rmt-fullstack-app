@@ -9,15 +9,20 @@ module.exports = class EnvironmentService {
   constructor(secretsManager) {
     this.secretsManager = secretsManager;
     this.varMap = {};
+    this.isInitialized = false;
   }
 
   async init() {
+    if (this.isInitialized) {
+      return this;
+    }
     // * LOCAL SCENARIO
     if (process.env.IS_LOCAL == 'true') {
       console.log('initializing local env setup');
       for (const varName in varNames) {
         this.varMap[varName] = process.env[varName];
       }
+      this.isInitialized = true;
       return this;
     }
     // * NON LOCAL SCENARIO
@@ -29,6 +34,7 @@ module.exports = class EnvironmentService {
     this.varMap[varNames.DB_HOST] = secretsMap.host;
     this.varMap[varNames.DB_PASSWORD] = secretsMap.password;
     this.varMap[varNames.DB_USER] = secretsMap.username;
+    this.isInitialized = true;
     return this;
   }
 

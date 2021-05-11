@@ -1,41 +1,28 @@
 //3rd party dependencies
 var express = require('express');
 const awsServerlessExpressMiddleware = require('aws-serverless-express/middleware');
-
-// this package dependencies
-const getCachedDbConnection = require('./util/dbConnect');
-
-// declare a new express app
-var app = express();
-app.use(awsServerlessExpressMiddleware.eventContext());
-
-// Enable CORS for all methods
-app.use(function (req, res, next) {
-  res.header('Access-Control-Allow-Origin', '*');
-  res.header('Access-Control-Allow-Headers', '*');
-  next();
-});
+const getApiPath = require('./api');
 
 
-app.get('/api', async function (req, res) {
-  console.log('\n you hit the get route');
-  const dbConnection = await getCachedDbConnection(req.apiGateway.context.envService);
-  const data = await dbConnection.execute('SELECT * FROM tutorials_tbl');
-  res.json({
-    success: 'get call succeed!',
-    data: data[0],
-    url: req.url
+function createApp(envService, dbConnection) {
+  console.log('creating app');
+  // declare a new express app
+  const app = express();
+  app.use(awsServerlessExpressMiddleware.eventContext());
+  // Enable CORS for all methods
+  app.use(function (req, res, next) {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Headers', '*');
+    next();
   });
-});
+  // register the path '/api' with router
+  app.use('/api', getApiPath(dbConnection));
 
+  // start listening (and create a 'server' object representing our server)
+  app.listen(3000, function () {
+    console.log('App started');
+  });
+  return app;
+}
 
-app.listen(3000, function () {
-  console.log('App started');
-});
-
-
-/* Export the app object. When executing the application local this does nothing. However, to port it to AWS Lambda we will create a wrapper around that will load the app from
-this file */
-module.exports = app;
-
-
+module.exports = createApp;
