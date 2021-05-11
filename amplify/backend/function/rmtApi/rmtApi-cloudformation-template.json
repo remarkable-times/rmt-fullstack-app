@@ -15,6 +15,10 @@
     },
     "s3Key": {
       "Type": "String"
+    },
+    "rmtClusterSecretName": {
+      "Type": "String",
+      "Default": "rds-db-credentials/cluster-KM5ZB66AEFD5XA4DCBWZ76ZSFM/rmt_app_user"
     }
   },
   "Conditions": {
@@ -72,6 +76,9 @@
             },
             "REGION": {
               "Ref": "AWS::Region"
+            },
+            "RMT_CLUSTER_SECRET_NAME": {
+              "Ref": "rmtClusterSecretName"
             }
           }
         },
@@ -193,6 +200,25 @@
                 "logs:PutLogEvents"
               ],
               "Resource": "*"
+            },
+            {
+              "Effect": "Allow",
+              "Action": [
+                "secretsmanager:GetSecretValue"
+              ],
+              "Resource": {
+                "Fn::Sub": [
+                  "arn:aws:secretsmanager:${region}:${account}:secret:rds-db-credentials/cluster-KM5ZB66AEFD5XA4DCBWZ76ZSFM/rmt_app_user-qx3PNo",
+                  {
+                    "region": {
+                      "Ref": "AWS::Region"
+                    },
+                    "account": {
+                      "Ref": "AWS::AccountId"
+                    }
+                  }
+                ]
+              }
             }
           ]
         }

@@ -1,16 +1,19 @@
-require('dotenv').config();
+
+const path = require('path');
+// local environment variable file is located outside of source folder so that it doesn't get loaded with function zip deployment
+const envFilePath = path.join(__dirname, '..', '..', '.env');
+require('dotenv').config({ path: envFilePath });
 const varNames = require('../enum/envEnum');
 
 module.exports = class EnvironmentService {
   constructor(secretsManager) {
-    this.isLocal = process.env.IS_LOCAL;
     this.secretsManager = secretsManager;
     this.varMap = {};
   }
 
   async init() {
     // * LOCAL SCENARIO
-    if (this.isLocal) {
+    if (process.env.IS_LOCAL == 'true') {
       console.log('initializing local env setup');
       for (const varName in varNames) {
         this.varMap[varName] = process.env[varName];
@@ -25,6 +28,7 @@ module.exports = class EnvironmentService {
     const secretsMap = JSON.parse(dbSecretsRes.SecretString);
     this.varMap[varNames.DB_HOST] = secretsMap.host;
     this.varMap[varNames.DB_PASSWORD] = secretsMap.password;
+    this.varMap[varNames.DB_USER] = secretsMap.username;
     return this;
   }
 
