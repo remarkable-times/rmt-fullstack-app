@@ -9,12 +9,17 @@ const getNewOrCachedConn = require('./util/dbConnect');
 let envService = new EnvironmentService(new SecretsManager());
 let server;
 let connection;
+let app;
 
 
 exports.handler = async (event, context) => {
   envService = await envService.init();
   connection = await getNewOrCachedConn(envService);
-  const app = createApp(envService, connection);
-  server = awsServerlessExpress.createServer(app);
+  if (app == undefined) {
+    app = createApp(envService, connection);
+  }
+  if (server == undefined) {
+    server = awsServerlessExpress.createServer(app);
+  }
   return awsServerlessExpress.proxy(server, event, context, 'PROMISE').promise;
 };

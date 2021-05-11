@@ -9,7 +9,7 @@ let envService = new EnvironmentService(new SecretsManager());
 let connection;
 
 
-(async (event, context) => {
+(async _ => {
   envService = await envService.init();
   connection = await initDbConnection(envService);
   createApp(envService, connection);
