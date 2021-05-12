@@ -42,7 +42,8 @@
       "function": {
         "rmtApi": {
           "deploymentBucketName": "amplify-remarkabletimes-featnew-143305-deployment",
-          "s3Key": "amplify-builds/rmtApi-476e744b31386f2f5748-build.zip"
+          "s3Key": "amplify-builds/rmtApi-746b464e315569624530-build.zip",
+          "rmtClusterSecretName": "rds-db-credentials/cluster-KM5ZB66AEFD5XA4DCBWZ76ZSFM/rmt_app_user"
         }
       },
       "hosting": {
