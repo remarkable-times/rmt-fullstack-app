@@ -15,7 +15,7 @@
       "function": {
         "rmtApi": {
           "deploymentBucketName": "amplify-remarkabletimes-dev-215059-deployment",
-          "s3Key": "amplify-builds/rmtApi-47634371505644527558-build.zip"
+          "s3Key": "amplify-builds/rmtApi-6b5258436463784a394f-build.zip"
         }
       },
       "hosting": {

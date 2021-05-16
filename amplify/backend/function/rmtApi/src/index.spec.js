@@ -3,7 +3,7 @@ const expect = require('chai').expect;
 
 
 describe('#index.js', () => {
-  it('initializes correctly', async () => {
+  it.only('initializes correctly', async () => {
     const mockInput = getMockGetInput();
     const res = await lambdaHandler(mockInput, mockInput.requestContext);
     console.log(res);
