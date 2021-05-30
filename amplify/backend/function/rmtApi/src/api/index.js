@@ -1,14 +1,21 @@
 const router = require('express').Router();
+const getModels = require('../db/model');
 
-module.exports = function getApiRouterPath(dbConnection) {
+module.exports = function getApiRouterPath(sqlizeConn) {
   router.get('/', async (req, res, next) => {
     console.log('\n you hit the get route');
 
-    const data = await dbConnection.execute('SELECT * FROM tutorials_tbl');
-    // console.log(data[0]);
+    const Team = getModels(sqlizeConn).Team;
+
+    const teams = await Team.findAll();
+
+    console.log('\n ****** QUERY RESULT IS: ');
+    console.log(teams);
+
+
     res.json({
       success: 'get call succeed!',
-      data: data[0],
+      data: 'connection happened',
       url: req.url
     });
   });
