@@ -26,24 +26,24 @@
       }
     }
   },
-  "featnew": {
+  "bri": {
     "awscloudformation": {
-      "AuthRoleName": "amplify-remarkabletimes-featnew-143305-authRole",
-      "UnauthRoleArn": "arn:aws:iam::466357709346:role/amplify-remarkabletimes-featnew-143305-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::466357709346:role/amplify-remarkabletimes-featnew-143305-authRole",
+      "AuthRoleName": "amplify-remarkabletimes-bri-102300-authRole",
+      "UnauthRoleArn": "arn:aws:iam::466357709346:role/amplify-remarkabletimes-bri-102300-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::466357709346:role/amplify-remarkabletimes-bri-102300-authRole",
       "Region": "us-east-1",
-      "DeploymentBucketName": "amplify-remarkabletimes-featnew-143305-deployment",
-      "UnauthRoleName": "amplify-remarkabletimes-featnew-143305-unauthRole",
-      "StackName": "amplify-remarkabletimes-featnew-143305",
-      "StackId": "arn:aws:cloudformation:us-east-1:466357709346:stack/amplify-remarkabletimes-featnew-143305/00ac4ca0-b0f5-11eb-8454-122ea9c7f0ef",
+      "DeploymentBucketName": "amplify-remarkabletimes-bri-102300-deployment",
+      "UnauthRoleName": "amplify-remarkabletimes-bri-102300-unauthRole",
+      "StackName": "amplify-remarkabletimes-bri-102300",
+      "StackId": "arn:aws:cloudformation:us-east-1:466357709346:stack/amplify-remarkabletimes-bri-102300/8a4b6cd0-c152-11eb-9bd0-12dace8e8b83",
       "AmplifyAppId": "d271or7remwsnk"
     },
     "categories": {
       "function": {
         "rmtApi": {
-          "deploymentBucketName": "amplify-remarkabletimes-featnew-143305-deployment",
-          "s3Key": "amplify-builds/rmtApi-437344442b5861574d65-build.zip",
-          "rmtClusterSecretName": "rds-db-credentials/cluster-KM5ZB66AEFD5XA4DCBWZ76ZSFM/rmt_app_user"
+          "rmtClusterSecretName": "rds-db-credentials/cluster-KM5ZB66AEFD5XA4DCBWZ76ZSFM/rmt_app_user",
+          "deploymentBucketName": "amplify-remarkabletimes-bri-102300-deployment",
+          "s3Key": "amplify-builds/rmtApi-437344442b5861574d65-build.zip"
         }
       },
       "hosting": {

@@ -105,7 +105,7 @@
         },
         "Runtime": "nodejs14.x",
         "Layers": [],
-        "Timeout": "25"
+        "Timeout": "35"
       }
     },
     "LambdaExecutionRole": {
@@ -199,21 +199,6 @@
                   }
                 ]
               }
-            },
-            {
-              "Sid": "VisualEditor0",
-              "Effect": "Allow",
-              "Action": [
-                "ec2:CreateNetworkInterface",
-                "logs:CreateLogStream",
-                "ec2:DescribeNetworkInterfaces",
-                "ec2:DeleteNetworkInterface",
-                "ec2:UnassignPrivateIpAddresses",
-                "ec2:AssignPrivateIpAddresses",
-                "logs:CreateLogGroup",
-                "logs:PutLogEvents"
-              ],
-              "Resource": "*"
             },
             {
               "Effect": "Allow",
