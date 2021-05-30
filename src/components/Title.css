@@ -1,0 +1,14 @@
+.title-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+
+
+}
+
+.title {
+    font-size: 3rem;
+    margin: 10px;
+
+}

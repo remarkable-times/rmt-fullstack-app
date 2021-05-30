@@ -1,10 +1,10 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
 
-@layer base {
-  body {
-    @apply bg-gray-900 text-yellow-500 m-0;
-  }
- 
+body {
+  width:100vw;
+  height: 100vh; 
+  margin: 0;
+  background-color: rgb(32, 32, 32);
+  color: skyblue;
 }
+
+

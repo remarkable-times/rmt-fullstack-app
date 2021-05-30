@@ -6,7 +6,7 @@ import Nav from '../components/Nav'
 
 export default function Newsletters() {
   return (
-    <div>
+    <div className='newsletter-container'>
     <Title />
     <Nav />
     <NewsletterGrid />

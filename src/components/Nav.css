@@ -1,0 +1,27 @@
+.nav-container {
+  display: flex;
+  font-size: 2rem;
+  border-radius: 15%;
+  justify-content: center;
+
+}
+
+a {
+  color:skyblue;
+  font-weight: 800;
+  }
+
+
+ @media only screen and (max-width: 600px) {
+
+  .nav-container {
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  a {
+    color: skyblue;
+    font-weight: 800;
+  } 
+
+ }
