@@ -16,7 +16,7 @@ export default function Comp() {
 
   return (
     
-      <div className="grid grid-cols-3" value={newsletterList}>
+      <div className="newsletter-container" value={newsletterList}>
         {tempMock.map((mock) => (
           <SingleNewsletter
             key={mock.id}
