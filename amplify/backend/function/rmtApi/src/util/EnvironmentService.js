@@ -39,7 +39,7 @@ module.exports = class EnvironmentService {
   }
 
   get(varName) {
-    if (!varNames[varName]) {
+    if (varNames[varName] == undefined) {
       throw new Error(varName + ' not in variable names enum');
     }
     const varValue = this.varMap[varName];
