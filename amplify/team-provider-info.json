@@ -44,10 +44,6 @@
           "rmtClusterSecretName": "rds-db-credentials/cluster-KM5ZB66AEFD5XA4DCBWZ76ZSFM/rmt_app_user",
           "deploymentBucketName": "amplify-remarkabletimes-bri-102300-deployment",
           "s3Key": "amplify-builds/rmtApi-2f75784b62694341596c-build.zip"
-        },
-        "dbModelSync": {
-          "deploymentBucketName": "amplify-remarkabletimes-bri-102300-deployment",
-          "s3Key": "amplify-builds/dbModelSync-416b7350516830794d78-build.zip"
         }
       },
       "hosting": {
