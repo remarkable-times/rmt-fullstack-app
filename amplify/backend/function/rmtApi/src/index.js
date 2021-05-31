@@ -7,6 +7,7 @@ const SequelizeWrapper = require('./db/SequelizeWrapper');
 const { Sequelize } = require('sequelize');
 const initModels = require('./db/model');
 const dbSyncUtil = require('./util/dbSyncUtil');
+const dbSeedUtil = require('./seed/seedTestData');
 
 // new up what needs to be newed up
 let envService = new EnvironmentService(new SecretsManager());
@@ -33,6 +34,12 @@ if the lambda is called manually with special input parameters the express app w
 */
     console.log('\n *** db-sync requested *** \n');
     await dbSyncUtil(sqlizeConn, event);
+    return;
+  }
+  //? DB SEED REQUESTED SCENARIO
+  if (event.eventType === 'seed') {
+    console.log('\n running seed script \n');
+    await dbSeedUtil(sqlizeConn);
     return;
   }
 

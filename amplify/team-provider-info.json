@@ -25,5 +25,36 @@
         }
       }
     }
+  },
+  "bri": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-remarkabletimes-bri-125825-authRole",
+      "UnauthRoleArn": "arn:aws:iam::466357709346:role/amplify-remarkabletimes-bri-125825-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::466357709346:role/amplify-remarkabletimes-bri-125825-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-remarkabletimes-bri-125825-deployment",
+      "UnauthRoleName": "amplify-remarkabletimes-bri-125825-unauthRole",
+      "StackName": "amplify-remarkabletimes-bri-125825",
+      "StackId": "arn:aws:cloudformation:us-east-1:466357709346:stack/amplify-remarkabletimes-bri-125825/6b704d00-c231-11eb-9814-0e7b928af6d7",
+      "AmplifyAppId": "d271or7remwsnk"
+    },
+    "categories": {
+      "function": {
+        "rmtApi": {
+          "rmtClusterSecretName": "rds-db-credentials/cluster-KM5ZB66AEFD5XA4DCBWZ76ZSFM/rmt_app_user",
+          "deploymentBucketName": "amplify-remarkabletimes-bri-125825-deployment",
+          "s3Key": "amplify-builds/rmtApi-4a2f74327a4f59307336-build.zip"
+        }
+      },
+      "hosting": {
+        "amplifyhosting": {
+          "appId": "d271or7remwsnk",
+          "type": "cicd"
+        }
+      },
+      "auth": {
+        "remarkabletimes072ae0ac": {}
+      }
+    }
   }
 }

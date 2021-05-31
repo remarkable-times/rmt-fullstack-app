@@ -8,15 +8,12 @@ module.exports = function getApiRouterPath(sqlizeConn) {
     const User = getModels(sqlizeConn).User;
     const Newsletter = getModels(sqlizeConn).Newsletter;
 
-    const userWithNls = await User.findOne({
-      where: {
-        id: 'a3cd907b-c225-11eb-9c2f-0242ac130002'
-      },
+    const userWithNls = await User.findAll({
       include: Newsletter
     });
 
     console.log('\n ****** QUERY RESULT IS: ');
-    console.log(userWithNls.dataValues.Newsletters);
+    console.log(userWithNls);
 
     res.json({
       success: 'get call succeed!',

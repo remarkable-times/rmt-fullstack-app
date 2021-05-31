@@ -1,35 +1,43 @@
 {
-  "paths": [
-    {
-      "name": "/api",
-      "lambdaFunction": "rmtApi",
-      "privacy": {
-        "open": true
-      },
-      "policyResourceName": "/api"
-    }
-  ],
-  "resourceName": "rmtApi",
-  "apiName": "rmtApi",
-  "functionArns": [
-    {
-      "lambdaFunction": "rmtApi"
-    }
-  ],
-  "privacy": {
-    "auth": 0,
-    "unauth": 0,
-    "authRoleName": "amplify-remarkabletimes-develop-212151-authRole",
-    "unAuthRoleName": "amplify-remarkabletimes-develop-212151-unauthRole"
-  },
-  "dependsOn": [
-    {
-      "category": "function",
-      "resourceName": "rmtApi",
-      "attributes": [
-        "Name",
-        "Arn"
-      ]
-    }
-  ]
+    "paths": [
+        {
+            "name": "/api",
+            "lambdaFunction": "rmtApi",
+            "privacy": {
+                "private": true,
+                "auth": [
+                    "/POST",
+                    "/GET",
+                    "/PUT",
+                    "/PATCH",
+                    "/DELETE"
+                ]
+            },
+            "policyResourceName": "/api"
+        }
+    ],
+    "resourceName": "rmtApi",
+    "apiName": "rmtApi",
+    "functionArns": [
+        {
+            "lambdaFunction": "rmtApi"
+        }
+    ],
+    "privacy": {
+        "auth": 1,
+        "unauth": 0,
+        "authRoleName": "amplify-remarkabletimes-bri-125825-authRole",
+        "unAuthRoleName": "amplify-remarkabletimes-bri-125825-unauthRole"
+    },
+    "dependsOn": [
+        {
+            "category": "function",
+            "resourceName": "rmtApi",
+            "attributes": [
+                "Name",
+                "Arn"
+            ]
+        }
+    ],
+    "uuid": "0bd7dca0"
 }

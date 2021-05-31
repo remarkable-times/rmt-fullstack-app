@@ -10,10 +10,10 @@ describe('#index.js', () => {
     expect(res.statusCode).equals(200);
     process.exit(0);
   });
+
   xit('synchronizes the db when lambda called with dbSync event', async () => {
     const mockInput = {
-      eventType: 'db-sync',
-      alter: true,
+      eventType: 'seed'
     };
     await lambdaHandler(mockInput);
     process.exit(0);
