@@ -4,7 +4,7 @@ const awsServerlessExpressMiddleware = require('aws-serverless-express/middlewar
 const getApiPath = require('./api');
 
 
-function createApp(envService, dbConnection) {
+function createApp(envService, sqlizeConn) {
   console.log('creating app');
   // declare a new express app
   const app = express();
@@ -16,7 +16,7 @@ function createApp(envService, dbConnection) {
     next();
   });
   // register the path '/api' with router
-  app.use('/api', getApiPath(dbConnection));
+  app.use('/api', getApiPath(sqlizeConn));
 
   // start listening (and create a 'server' object representing our server)
   app.listen(3000, function () {

@@ -105,7 +105,7 @@
         },
         "Runtime": "nodejs14.x",
         "Layers": [],
-        "Timeout": "25"
+        "Timeout": "45"
       }
     },
     "LambdaExecutionRole": {
@@ -144,7 +144,21 @@
               ]
             }
           ]
-        }
+        },
+        "ManagedPolicyArns": [
+          {
+            "Fn::Join": [
+              "",
+              [
+                "arn:",
+                {
+                  "Ref": "AWS::Partition"
+                },
+                ":iam::aws:policy/service-role/AWSLambdaVPCAccessExecutionRole"
+              ]
+            ]
+          }
+        ]
       }
     },
     "lambdaexecutionpolicy": {
@@ -187,28 +201,13 @@
               }
             },
             {
-              "Sid": "VisualEditor0",
-              "Effect": "Allow",
-              "Action": [
-                "ec2:CreateNetworkInterface",
-                "logs:CreateLogStream",
-                "ec2:DescribeNetworkInterfaces",
-                "ec2:DeleteNetworkInterface",
-                "ec2:UnassignPrivateIpAddresses",
-                "ec2:AssignPrivateIpAddresses",
-                "logs:CreateLogGroup",
-                "logs:PutLogEvents"
-              ],
-              "Resource": "*"
-            },
-            {
               "Effect": "Allow",
               "Action": [
                 "secretsmanager:GetSecretValue"
               ],
               "Resource": {
                 "Fn::Sub": [
-                  "arn:aws:secretsmanager:${region}:${account}:secret:rds-db-credentials/cluster-KM5ZB66AEFD5XA4DCBWZ76ZSFM/rmt_app_user-qx3PNo",
+                  "arn:aws:secretsmanager:${region}:${account}:secret:rds-db-credentials/cluster-KM5ZB66AEFD5XA4DCBWZ76ZSFM/*",
                   {
                     "region": {
                       "Ref": "AWS::Region"
