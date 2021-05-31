@@ -3,13 +3,20 @@ const expect = require('chai').expect;
 
 
 describe('#index.js', () => {
-  it('initializes correctly', async () => {
+  it('initializes correctly', async (done) => {
     const mockInput = getMockGetInput();
     const res = await lambdaHandler(mockInput, mockInput.requestContext);
-    console.log(res);
+    // console.log(res);
     expect(res.statusCode).equals(200);
     process.exit(0);
-    
+  });
+  xit('synchronizes the db when lambda called with dbSync event', async () => {
+    const mockInput = {
+      eventType: 'db-sync',
+      alter: true,
+    };
+    await lambdaHandler(mockInput);
+    process.exit(0);
   });
 });
 

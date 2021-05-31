@@ -19,7 +19,7 @@ let envService = new EnvironmentService(new SecretsManager());
   const sqlizeConn = await sequelizeWrapper.createConnection();
   initModels(sqlizeConn);
   //https://sequelize.org/master/manual/model-basics.html#synchronizing-all-models-at-once
-  await sqlizeConn.sync(); //! WARNING -- never use this in production, force:true  will drop and re create tables
+  await sqlizeConn.sync({ alter: true }); //! WARNING -- never use this in production, force:true  will drop and re create tables
   console.log('All models were synchronized successfully.');
   // connection = await initDbConnection(envService);
   createApp(envService, sqlizeConn);
